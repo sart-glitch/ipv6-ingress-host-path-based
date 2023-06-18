@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-app
+  labels:
+    app: red-app
+spec:
+  selector:
+    matchLabels:
+      app: red-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: red-app
+    spec:
+      containers:
+      - name: red-container
+        image: sarthak8564/red123:latest
+        ports:
+            - containerPort: 80

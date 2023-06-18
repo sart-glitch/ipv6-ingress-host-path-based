@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-app
+  namespace: game-2048
+  labels:
+    app: green-app
+spec:
+  selector:
+    matchLabels:
+      app: green-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: green-app
+    spec:
+      containers:
+      - name: green-container
+        image: sarthak8564/green123:latest
+        ports:
+            - containerPort: 80
